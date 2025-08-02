@@ -33,7 +33,7 @@ class Bitnuvem:
 
         post_params = dict(api_key=self.apikey, request_body=msg, signature=self._signature(msg))
 
-        response = requests.request(method or 'post', url=f'{API_PRIVATE_URL}/{end_point}', data=post_params)
+        response = requests.request(method or 'post', url=f'{API_PRIVATE_URL}/{end_point}', data=post_params, timeout=60)
 
         if response.ok:
             return response.json()
